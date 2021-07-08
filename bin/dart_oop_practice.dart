@@ -1,45 +1,69 @@
 import 'dart:io';
 
+//* function with no return values
+void sayHello() {
+  print('Hello World');
+}
+
+//* function with return values
+int calculateSquareArea(int height, int length) {
+  return height * length;
+}
+
+//* optional parameter (named parameter)
+String sendMessage(String from, String message, {String to, String appName}) {
+  return from +
+      " say " +
+      message +
+      ((to != null) ? " to " + to : "") +
+      ((appName != null) ? " via " + appName : "");
+}
+
+//* optional parameter (positional parameter)
+String sendMessagePositional(String from, String message, [String to = 'someone', String appName = 'no app']) {
+  return from +
+      " say " +
+      message +
+      ((to != null) ? " to " + to : "") +
+      ((appName != null) ? " via " + appName : "");
+}
+
+//* lambda function
+int add(int number1, int number2) => number1 + number2;
+
+//* anonymous function
+double doMathOperation(double number1, double number2, Function(double, double) operation) {
+  return operation(number1, number2);
+}
+
 void main(List<String> arguments) {
-  //* basic for loop
-  // for (int counter = 0; counter < 5; counter = counter + 1) {
-  //   print('Hello World');
-  // }
+  //* call a function
+  sayHello();
+  print('==========');
 
-  // for (int counter = 0; counter < 5; counter += 1) {
-  //   print('Hello World');
-  // }
+  //* save return value in to a variable
+  int squareArea = calculateSquareArea(10, 3);
+  print(squareArea);
+  print('==========');
 
-  //* while
-  // int i = 0;
-  // while (i < 5) {
-  //   print("Hello World " + i.toString());
-  //   i += 1;
-  // }
+  //* call function with optional parameters (named parameters)
+  print(sendMessage('Nada', 'Hello World'));
+  print(sendMessage('Nada', 'Hello Hasni', to: 'Hasni'));
+  print(sendMessage('Nada', 'Hello Hasni', to: 'Hasni', appName: 'WhatsApp'));
+  print('==========');
 
-  //* do while
-  // int i = 0;
-  // do {
-  //   print("Hello World " + i.toString());
-  //   i += 1;
-  // } while (i < 5);
+  //* call function with optional parameters (positional parameters)
+  print(sendMessagePositional('Budi', 'Good Morning'));
+  print(sendMessagePositional('Budi', 'Good Morning Andi', 'Andi'));
+  print(sendMessagePositional('Budi', 'Good Morning Andi', 'Andi', 'WhatsApp'));
+  print('==========');
 
-  //* unary increment decrement
-  // for (int counter = 0; counter < 5; counter++) {
-  //   print('Hello World');
-  // }
+  //* call lambda function
+  int result = add(10, 2);
+  print(result);
+  print('==========');
 
-  //* i++
-  // int a, b;
-  // a = 10;
-  // b = a++;
-
-  // print("$a - $b");
-
-  //* ++i
-  int a, b;
-  a = 10;
-  b = ++a;
-
-  print("$a - $b");
+  //* call anonymous function
+  double resultOperation = doMathOperation(10, 2, (a, b) => a / b);
+  print(resultOperation);
 }
