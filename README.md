@@ -1,2 +1,1 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+This is my repository for tracking my practices on writing dart code with OOP paradigm
