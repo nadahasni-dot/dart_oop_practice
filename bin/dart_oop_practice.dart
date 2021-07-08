@@ -1,32 +1,45 @@
 import 'dart:io';
 
 void main(List<String> arguments) {
-  int number = int.tryParse(stdin.readLineSync());
-
-  //* basic if else
-  // if (number > 0) {
-  //   print('positive');
-  // } else if (number < 0) {
-  //   print('negative');
-  // } else {
-  //   print('zero');
+  //* basic for loop
+  // for (int counter = 0; counter < 5; counter = counter + 1) {
+  //   print('Hello World');
   // }
 
-  //* ternary
-  // print((number > 0) ? 'positve' : 'negative or zero');
+  // for (int counter = 0; counter < 5; counter += 1) {
+  //   print('Hello World');
+  // }
 
-  //* switch case for static value
-  switch (number) {
-    case 0:
-      print('zero');
-      break;
-    case 1:
-      print('one');
-      break;
-    case 2:
-      print('two');
-      break;
-    default:
-      print('other number');
-  }
+  //* while
+  // int i = 0;
+  // while (i < 5) {
+  //   print("Hello World " + i.toString());
+  //   i += 1;
+  // }
+
+  //* do while
+  // int i = 0;
+  // do {
+  //   print("Hello World " + i.toString());
+  //   i += 1;
+  // } while (i < 5);
+
+  //* unary increment decrement
+  // for (int counter = 0; counter < 5; counter++) {
+  //   print('Hello World');
+  // }
+
+  //* i++
+  // int a, b;
+  // a = 10;
+  // b = a++;
+
+  // print("$a - $b");
+
+  //* ++i
+  int a, b;
+  a = 10;
+  b = ++a;
+
+  print("$a - $b");
 }
