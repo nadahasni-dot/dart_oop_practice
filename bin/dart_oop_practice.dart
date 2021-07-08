@@ -1,5 +1,3 @@
-import 'dart:io';
-
 //* function with no return values
 void sayHello() {
   print('Hello World');
@@ -13,19 +11,19 @@ int calculateSquareArea(int height, int length) {
 //* optional parameter (named parameter)
 String sendMessage(String from, String message, {String to, String appName}) {
   return from +
-      " say " +
+      ' say ' +
       message +
-      ((to != null) ? " to " + to : "") +
-      ((appName != null) ? " via " + appName : "");
+      ((to != null) ? ' to ' + to : '') +
+      ((appName != null) ? ' via ' + appName : '');
 }
 
 //* optional parameter (positional parameter)
 String sendMessagePositional(String from, String message, [String to = 'someone', String appName = 'no app']) {
   return from +
-      " say " +
+      ' say ' +
       message +
-      ((to != null) ? " to " + to : "") +
-      ((appName != null) ? " via " + appName : "");
+      ((to != null) ? ' to ' + to : '') +
+      ((appName != null) ? ' via ' + appName : '');
 }
 
 //* lambda function
