@@ -1,22 +1,26 @@
 import 'package:dart_oop_practice/eagle_monster.dart';
 import 'package:dart_oop_practice/hero.dart';
+import 'package:dart_oop_practice/knight.dart';
 import 'package:dart_oop_practice/monster.dart';
 import 'package:dart_oop_practice/shark_monster.dart';
 
 void main(List<String> arguments) {
-  //* create instance from hero and monster
-  Hero hero = Hero();
+  //* create instance from knight
+  Knight knight = Knight();
 
   //* set healthpoint extended from character
-  hero.healthPoint = 100;
+  knight.healthPoint = 80;
 
   //* access inherited property
-  print('Hero HP: ' + hero.healthPoint.toString());
+  print('knight HP: ' + knight.healthPoint.toString());
 
   //* kill a monster
-  print(hero.killAMonster());
-  print('Hero HP: ' + hero.healthPoint.toString());
+  print(knight.killAMonster());
+  print('knight HP: ' + knight.healthPoint.toString());
 
+  //* drink and restore hp
+  print('knight drink: ' + knight.drink());  
+  print('knight HP: ' + knight.healthPoint.toString());
   print('==========');
 
   //* populate list of monsters
