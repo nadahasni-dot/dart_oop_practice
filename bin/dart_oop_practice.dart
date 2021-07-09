@@ -6,21 +6,16 @@ import 'package:dart_oop_practice/shark_monster.dart';
 void main(List<String> arguments) {
   //* create instance from hero and monster
   Hero hero = Hero();
-  Monster monster = Monster();
 
   //* set healthpoint extended from character
   hero.healthPoint = 100;
-  monster.healthPoint = 50;
 
   //* access inherited property
   print('Hero HP: ' + hero.healthPoint.toString());
-  print('Monster HP: ' + monster.healthPoint.toString());
 
   //* kill a monster
   print(hero.killAMonster());
-  monster.healthPoint = 0;
   print('Hero HP: ' + hero.healthPoint.toString());
-  print('Monster HP: ' + monster.healthPoint.toString());
 
   print('==========');
 
@@ -49,7 +44,5 @@ void main(List<String> arguments) {
   print('==============');
   //* shark monster inside list
   print((monsters[0] as SharkMonster).swim());
-
-  //! will be error, beacasue monsters[2] is not a shark
-  print((monsters[2] as SharkMonster).swim());
+  print((monsters[2] as EagleMonster).flyAttack());
 }
