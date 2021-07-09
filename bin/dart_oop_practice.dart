@@ -1,67 +1,43 @@
-//* function with no return values
-void sayHello() {
-  print('Hello World');
-}
-
-//* function with return values
-int calculateSquareArea(int height, int length) {
-  return height * length;
-}
-
-//* optional parameter (named parameter)
-String sendMessage(String from, String message, {String to, String appName}) {
-  return from +
-      ' say ' +
-      message +
-      ((to != null) ? ' to ' + to : '') +
-      ((appName != null) ? ' via ' + appName : '');
-}
-
-//* optional parameter (positional parameter)
-String sendMessagePositional(String from, String message, [String to = 'someone', String appName = 'no app']) {
-  return from +
-      ' say ' +
-      message +
-      ((to != null) ? ' to ' + to : '') +
-      ((appName != null) ? ' via ' + appName : '');
-}
-
-//* lambda function
-int add(int number1, int number2) => number1 + number2;
-
-//* anonymous function
-double doMathOperation(double number1, double number2, Function(double, double) operation) {
-  return operation(number1, number2);
-}
-
 void main(List<String> arguments) {
-  //* call a function
-  sayHello();
-  print('==========');
+  //* list declaration
+  List<String> myNumbers = [];
+  List<int> list = [1, 3, 4, 7, 2, 5, 10, 8];
 
-  //* save return value in to a variable
-  int squareArea = calculateSquareArea(10, 3);
-  print(squareArea);
-  print('==========');
+  //* add to list
+  list.add(100);
+  list.addAll([10, 99, 108]);
 
-  //* call function with optional parameters (named parameters)
-  print(sendMessage('Nada', 'Hello World'));
-  print(sendMessage('Nada', 'Hello Hasni', to: 'Hasni'));
-  print(sendMessage('Nada', 'Hello Hasni', to: 'Hasni', appName: 'WhatsApp'));
-  print('==========');
+  //* insert into index
+  list.insert(2, 88);
+  list.insertAll(5, [10, 11, 12]);
 
-  //* call function with optional parameters (positional parameters)
-  print(sendMessagePositional('Budi', 'Good Morning'));
-  print(sendMessagePositional('Budi', 'Good Morning Andi', 'Andi'));
-  print(sendMessagePositional('Budi', 'Good Morning Andi', 'Andi', 'WhatsApp'));
-  print('==========');
+  //* remove value from list
+  list.remove(20);
+  list.removeWhere((number) => number % 2 != 0); // remove odd
+  list.removeRange(2, 4); // remove from index 2 & 3. stop before index 4  
 
-  //* call lambda function
-  int result = add(10, 2);
-  print(result);
-  print('==========');
+  //* iterate each list using for
+  // for (int i = 0; i < list.length; i++) {
+  //   print(list[i]);
+  // }
+  // print('=========');
 
-  //* call anonymous function
-  double resultOperation = doMathOperation(10, 2, (a, b) => a / b);
-  print(resultOperation);
+  //* iterate each list using for in
+  // for (int number in list) {
+  //   print(number);
+  // }
+  // print('=========');
+
+  //* iterate each list using foreach
+  list.forEach((number) {
+    print('number ' + number.toString());
+  });
+  print('=========');
+
+  //* map list into another form
+  myNumbers = list.map((number) => 'my number is ' + number.toString()).toList();
+
+  myNumbers.forEach((myNumber) {
+    print(myNumber);
+  });
 }
