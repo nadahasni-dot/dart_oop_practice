@@ -1,27 +1,26 @@
+import 'package:pedantic/pedantic.dart';
+
 import 'person.dart';
 
-void main(List<String> arguments) {
+void main(List<String> arguments) async {
   //* create person object and pass name into doHobby
   var budi = Person('Budi', 200, doHobby: (String name) {
     print('$name is playing game');
   });
+  
+  //* wait 3s for getDataAsync completed then do next command
+  await budi.getDataAsync();
+
   print(budi.name);
-  print(budi.age.toString());
 
-  budi.enjoyTime();
+  //* dont wait for this async method and do next command directly
+  unawaited(budi.getDataAsync());
 
-  //* create person object and ignore passing name into doHobby
-  var joko = Person('Joko', 24, doHobby: (_) {
-    print('person is playing basketball');
+  //* other ways to handle future by calling callback .then()
+  //* after getDataAsync completed then do something
+  budi.getDataAsync().then((_) {
+    print('Get Data Completed');
   });
-  print(joko.name);
-  print(joko.age.toString());
 
-  joko.enjoyTime();
-
-  //*show max age
-  print('Max Age of a Person: ${Person.maxAge.toString()}');
-
-  //! will be error. because maxAge is a member of class not a member of an object
-  //! print('Max Age of joko: ${joko.maxAge}');
+  print(budi.age);
 }

@@ -9,7 +9,8 @@ class Person {
 
   //* constructor person with optional named parameter
   Person(this.name, int age, {this.doHobby}) {
-    if (age > maxAge) { // check if age is greater than maxAge
+    if (age > maxAge) {
+      // check if age is greater than maxAge
       this.age = maxAge;
     } else {
       this.age = age;
@@ -20,5 +21,12 @@ class Person {
     if (doHobby != null) {
       doHobby(name);
     }
+  }
+
+  //* asynchronous method to get data from db
+  Future<void> getDataAsync() async {
+    //* wait for 3 seconds
+    await Future.delayed(Duration(seconds: 3));
+    print('Get Data $name User Success: ($name | $age years old)');
   }
 }
