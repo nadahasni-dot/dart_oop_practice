@@ -1,26 +1,25 @@
-import 'package:pedantic/pedantic.dart';
+void main(List<String> arguments) {
+  //* identifier
+  var a = RegularClass(number: 5);
+  var b = RegularClass(number: 5);
 
-import 'person.dart';
+  //* check between objects if identical or not
+  print(identical(a, b)); // is not identical
 
-void main(List<String> arguments) async {
-  //* create person object and pass name into doHobby
-  var budi = Person('Budi', 200, doHobby: (String name) {
-    print('$name is playing game');
-  });
-  
-  //* wait 3s for getDataAsync completed then do next command
-  await budi.getDataAsync();
+  //* identifier
+  var c = const RegularClass(number: 3);
+  var d = const RegularClass(number: 3);
 
-  print(budi.name);
+  //* check between objects if identical or not
+  print(identical(c, d)); // is identical
+}
 
-  //* dont wait for this async method and do next command directly
-  unawaited(budi.getDataAsync());
+//* class
+class RegularClass {
+  //* final keyword
+  final int number; // must be initialized directly or via constructor
 
-  //* other ways to handle future by calling callback .then()
-  //* after getDataAsync completed then do something
-  budi.getDataAsync().then((_) {
-    print('Get Data Completed');
-  });
-
-  print(budi.age);
+  //* initialize number via constructor
+  //* const keyword to be able to refers to same object
+  const RegularClass({this.number});
 }
