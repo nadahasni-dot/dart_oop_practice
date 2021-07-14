@@ -1,16 +1,41 @@
-import 'package:dart_oop_practice/generic_secure.dart';
-
 void main(List<String> arguments) {
-  //* create instance with generic type of int
-  var genericObj = GenericSecure<int>(100, '123');
+  var monster = Monster();
+  monster.move();
+  monster.eat();
 
-  //* create instance with generic type of int
-  var genericObjString = GenericSecure<String>('This is a string', '123');
+//  * Cascade Notation example
+  var monster2 = Monster(status: MonsterStatus.poisoned)
+    ..move()
+    ..eat();
+}
 
-  //* create instance with generic type of DateTime
-  var genericObjDateTime = GenericSecure<DateTime>(DateTime.now(), '123');
+// * enum type
+enum MonsterStatus { normal, poisoned, confused }
 
-  print(genericObj.getData('123'));
-  print(genericObjString.getData('123'));
-  print(genericObjDateTime.getData('123').toString());
+class Monster {
+  final MonsterStatus
+      status; // create _status with type of MonsterStatus (enum)
+
+  Monster({this.status = MonsterStatus.normal});
+
+  void move() {
+    // condition based on enum (MonsterStatus)
+    switch (status) {
+      case MonsterStatus.normal:
+        print('Monster is moving');
+        break;
+      case MonsterStatus.poisoned:
+        print('Monster is poisoned and dying. can not move');
+        break;
+      case MonsterStatus.confused:
+        print('Monster is confused. Dart language is confusing');
+        break;
+      default:
+        print('Monster Died');
+    }
+  }
+
+  void eat() {
+    print('Yam yam.. Mmm.. delicious.. Yummy..');
+  }
 }
