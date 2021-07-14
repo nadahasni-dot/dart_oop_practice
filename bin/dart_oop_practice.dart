@@ -1,25 +1,16 @@
+import 'package:dart_oop_practice/generic_secure.dart';
+
 void main(List<String> arguments) {
-  //* identifier
-  var a = RegularClass(number: 5);
-  var b = RegularClass(number: 5);
+  //* create instance with generic type of int
+  var genericObj = GenericSecure<int>(100, '123');
 
-  //* check between objects if identical or not
-  print(identical(a, b)); // is not identical
+  //* create instance with generic type of int
+  var genericObjString = GenericSecure<String>('This is a string', '123');
 
-  //* identifier
-  var c = const RegularClass(number: 3);
-  var d = const RegularClass(number: 3);
+  //* create instance with generic type of DateTime
+  var genericObjDateTime = GenericSecure<DateTime>(DateTime.now(), '123');
 
-  //* check between objects if identical or not
-  print(identical(c, d)); // is identical
-}
-
-//* class
-class RegularClass {
-  //* final keyword
-  final int number; // must be initialized directly or via constructor
-
-  //* initialize number via constructor
-  //* const keyword to be able to refers to same object
-  const RegularClass({this.number});
+  print(genericObj.getData('123'));
+  print(genericObjString.getData('123'));
+  print(genericObjDateTime.getData('123').toString());
 }
